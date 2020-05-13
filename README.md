@@ -29,9 +29,9 @@ Zaheen Hamidani collected all the data for the dataset. All songs were gathered 
 - How many features (columns) are in the data?
 18
 - What questions (from above) can be answered using the data in this dataset?
-1. What is the most popular key for a song?
-2. Which genre has the most dancible songs?
-3. How does the length of the song affect its liveliness?
+  1. What is the most popular key for a song?
+  2. Which genre has the most dancible songs?
+  3. How does the length of the song affect its liveliness?
 
 ### DATASET 2:
 Daniel DeFoe used data collated to do a research project at California Polytechnic State University in San Luis Obispo. This entire data package includes data from the following sources:
@@ -47,6 +47,6 @@ Recording Industry Association of America
 - How many features (columns) are in the data?
 6
 - What questions (from above) can be answered using the data in this dataset?
-1. How many times was the song streamed during the week?
-2. When did the song enter the Top 200 chart?
-3. Which singer(s) sang the song?
+  1. How many times was the song streamed during the week?
+  2. When did the song enter the Top 200 chart?
+  3. Which singer(s) sang the song?
