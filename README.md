@@ -37,11 +37,15 @@ Zaheen Hamidani collected all the data for the dataset. All songs were gathered 
 ### DATASET 2:
 Daniel DeFoe used data collated to do a research project at California Polytechnic State University in San Luis Obispo. This entire data package includes data from the following sources:
 
-- Billboard Hot 100
-- Spotify (and their API)
-- Genius
-- Recording Academy Grammy Awards
-- Recording Industry Association of America
+Billboard Hot 100
+
+Spotify (and their API)
+
+Genius
+
+Recording Academy Grammy Awards
+
+Recording Industry Association of America
 
 - How many observations (rows) are in your data?
 26400
@@ -55,10 +59,13 @@ Daniel DeFoe used data collated to do a research project at California Polytechn
 ### DATASET 3:
 Mitesh Singh collected this dataset in the fall of 2018 for his CSE 519 at SBU. This entire data package includes data from the following sources:
 
-- Billboard Hot 100
-- WCBS
-- Spotify
-- Last.fm
+Billboard Hot 100
+
+WCBS
+
+Spotify
+
+Last.fm
 
 - How many observations (rows) are in your data?
 301K
