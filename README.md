@@ -14,12 +14,13 @@ We are interested in finding why and how certain artists and companies stay on t
 ## Finding Data
 - Where did you download the data (e.g., a web URL)?
 
-We found a [dataset](https://www.kaggle.com/zaheenhamidani/ultimate-spotify-tracks-db) on Kaggle! (Click the hyperlink!)
-- How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
+We found these datasets:
 
-DATASET 2: [data 2](https://www.kaggle.com/danield2255/data-on-songs-from-billboard-19992019#spotifyWeeklyTop200Streams.csv)
+DATASET 1: [dataset 1](https://www.kaggle.com/zaheenhamidani/ultimate-spotify-tracks-db) on Kaggle! (Click the hyperlink!)
 
-DATATSET 3: ahhhhh idk yet
+DATASET 2: [dataset 2](https://www.kaggle.com/danield2255/data-on-songs-from-billboard-19992019#spotifyWeeklyTop200Streams.csv)
+
+DATATSET 3: [dataset 3](https://www.kaggle.com/miteshsingh/hollywood-music-dataset) 
 
 
 ### DATASET 1: 
@@ -50,3 +51,20 @@ Recording Industry Association of America
   1. How many times was the song streamed during the week?
   2. When did the song enter the Top 200 chart?
   3. Which singer(s) sang the song?
+  
+### DATASET 3:
+Mitesh Singh collected this dataset in the fall of 2018 for his CSE 519 at SBU. This entire data package includes data from the following sources:
+
+Billboard Hot 100
+WCBS
+Spotify
+Last.fm
+
+- How many observations (rows) are in your data?
+301K
+- How many features (columns) are in the data?
+8
+- What questions (from above) can be answered using the data in this dataset?
+  1. What is the artist ot the song that lasted on the charts for the longest period of time?
+  2. Which artists has the most number of songs on the charts?
+  3. Which songs lasted longest after their year of publishing? 
