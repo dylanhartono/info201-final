@@ -2,7 +2,7 @@
 ## Domain of interest: Music Charts
 - Why are you interested in this field/domain?
 
-All of us love listening to music, but we find that many of our favorite songs never seem to make it on the top of the billboards, and pop songs are always on the top even though it's not our taste. Many pop songs are formulaic, so we want to know the secret sauce that allows certain artists and companies to reach and stay on the top of the billboards. 
+All of us love listening to music, but we find that many of our favorite songs never seem to make it on the top of the billboards. Pop songs are always on the top even though it's not our taste. Many pop songs are formulaic, so we want to know the secret sauce that allows certain artists and companies to reach and stay on the top of the billboards. 
 
 - What other examples of data driven project have you found related to this domain (share at least 3)?
 1. [History of Rock Music](https://svds.com/rockandroll/#littlerichard) creates data visualizations on the connections between artists and songs in the rock and roll era. The website is a big visualization like a big spider web where artists and songs are small circles and lines connect them together, and the web highlights immediate connections whenever you click a person.
@@ -23,9 +23,9 @@ All of us love listening to music, but we find that many of our favorite songs n
 ## Finding Data
 - Where did you download the data (e.g., a web URL)?
 
-We found all our datasets through Kaggle. Each come from a different source, and we downloaded the dataset from the website. We picked the one datasets that we wanted when downloading since all urls had their datasets come in packages of multiple datasets to put in the data folder.
+We found all our datasets through Kaggle. Each came from a different source, and we downloaded the dataset from the website. We picked the one datasets that we wanted when downloading (since all urls had their datasets came in packages of multiple datasets) to put in the data folder.
 
-Below are URL's to the websites where we got our data. If you want to check our data, make sure to pick the one with the right name! (ie. the names similar to the ones from our folder)
+Below are URL's to the websites where we got our data. If you want to check our data on the website itself, make sure to pick the one with the right name! (ie. the names similar to the ones from our folder)
 - Dataset 1: [Ultimate Spotify Tracks](https://www.kaggle.com/zaheenhamidani/ultimate-spotify-tracks-db)
 - Dataset 2: [Spotify Weekly Top 200 Streams](https://www.kaggle.com/danield2255/data-on-songs-from-billboard-19992019#spotifyWeeklyTop200Streams.csv)
 - Dataset 3: [Billboard Weekly Songs With Song And Artist Spotify Popularity](https://www.kaggle.com/miteshsingh/hollywood-music-dataset) 
