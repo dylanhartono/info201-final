@@ -11,3 +11,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ## Introduction to the problem domain and dataset
+
+
+
+## Summary Table 
+
+
+
+## Chart 1
+
+
+## Chart 2
+
+
+## Chart 3
