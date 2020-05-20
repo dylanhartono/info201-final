@@ -29,12 +29,12 @@ tempo_pop_data <- random_sample %>%
 bar_chart <- ggplot(data = tempo_pop_data) +
   geom_col(mapping = aes(x = tempo, y = popularity, fill = genre))
 
-bar_plot <- plot_ly(
-  tempo_pop_data,
+plot_ly(
+  data = tempo_pop_data,
   x  = ~tempo,
   y = ~popularity,
   color = ~genre,
-  colors = colorRampPalette(brewer.pal(10,"Spectral"))(18),
+  colors = colorRampPalette(brewer.pal(10,"Spectral"))(27),
   type = "bar",
   text = ~paste('</br>', genre,
                 ':',
