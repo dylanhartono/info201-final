@@ -1,3 +1,5 @@
 data <- read.csv("../data/UltimateSpotifyTracks.csv", stringsAsFactors = FALSE)
-length(unique(data$ï..genre))
+length(unique(data$?..genre))
 names(data)
+
+
