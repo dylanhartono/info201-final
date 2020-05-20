@@ -18,10 +18,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-## Chart 1
+## Chart 1: 
 
 
-## Chart 2
+## Chart 2: 
 
 
 ## Chart 3
