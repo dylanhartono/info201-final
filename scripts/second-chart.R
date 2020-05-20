@@ -18,15 +18,21 @@ billboard_df <- read.csv(
   stringsAsFactors = FALSE,
 )
 
+# taking a random sample of 1500 songs
+# condense the data and increase point visibility
 rand_samp <- sample_n(sptfy_tracks_df, 1500)
 samp_songs <- rand_samp %>%
   filter(genre != "Children’s Music")
 
+# non-interactive graph
 ggplot(data = samp_songs) +
   geom_point(mapping = aes(x = popularity, y = danceability, color = genre))+ 
   scale_fill_brewer(palette = "YlOrRd") + 
   labs(title = "Danceability versus Popularity", x = "Popularity", y = "Danceability")
 
+# interactive graph
+# depicts artist name, track name
+# popularity and danceability for sample of 1500 tracks
 plot_ly(
   data = samp_songs,
   x = ~popularity,
