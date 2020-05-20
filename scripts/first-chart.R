@@ -5,12 +5,12 @@ library(ggplot2)
 library(plotly)
 library(RColorBrewer)
 
-
-random_sample <- sample_n(data, 1500)
-tempo_pop_data <- random_sample %>%
+tempo_pop_data <- data %>%
   filter(!is.na(tempo)) %>%
   filter(!is.na(popularity)) %>%
-  filter(genre != "Children’s Music")
+  filter(genre != "Children’s Music") %>%
+  sample_n(1500)
+
 
 
 #This chart aims to show the relationship between a song's tempo and its popularity.
