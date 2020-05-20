@@ -1,7 +1,13 @@
+#Correlation between song tempo and popularity
+
 library(dplyr)
 library(ggplot2)
+library(plotly)
+library(RColorBrewer)
 
-tempo_pop_data <- data %>%
+
+random_sample <- sample_n(data, 1500)
+tempo_pop_data <- random_sample %>%
   filter(!is.na(tempo)) %>%
   filter(!is.na(popularity)) %>%
   filter(genre != "Children’s Music")
@@ -9,9 +15,6 @@ tempo_pop_data <- data %>%
 
 #This chart aims to show the relationship between a song's tempo and its popularity.
 #We want to see whether a song's tempo has correlations to its popoularity.
-
-scatter_plot <- ggplot(data = tempo_pop_data) + 
-  geom_point(aes(x = tempo, y = popularity, color = genre)) 
 
 #The bar chart below shows the relationship between a song's tempo and its popularity.
 #From this bar chart, we can see that each genre has an average level of 
@@ -23,9 +26,25 @@ scatter_plot <- ggplot(data = tempo_pop_data) +
 #the lower the popularity. On the other hand, songs that have a popularity level
 #below 50, the faster the tempo, the higher the popularity.
 
-ggplot(data = tempo_pop_data) +
+bar_chart <- ggplot(data = tempo_pop_data) +
   geom_col(mapping = aes(x = tempo, y = popularity, fill = genre))
 
-
+bar_plot <- plot_ly(
+  tempo_pop_data,
+  x  = ~tempo,
+  y = ~popularity,
+  color = ~genre,
+  colors = colorRampPalette(brewer.pal(10,"Spectral"))(18),
+  type = "bar",
+  text = ~paste('</br>', genre,
+                ':',
+                '</br> Tempo: ', tempo,
+                '</br> Popularity: ', popularity)
+) %>%
+  layout (
+    title = "Tempo VS. Popularity",
+    xaxis = list(title = "Tempo"),
+    yaxis = list(title = "Popularity")
+  )
   
 
