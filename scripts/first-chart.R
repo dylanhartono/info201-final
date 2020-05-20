@@ -8,10 +8,13 @@ tempo_pop_data <- data %>%
 #Purpose: Does tempo affect a song’s popularity? 
 #This chart aims to show the relationship between a song's tempo and its popularity.
 
-ggplot(data = tempo_pop_data) + 
+#This scatter plot shows the relationship between a song's tempo and its popularity.
+scatter_plot <- ggplot(data = tempo_pop_data) + 
   geom_point(aes(x = tempo, y = popularity, color = genre)) 
 
-bar <- ggplot(data = tempo_pop_data) +
+
+#This bar chart shows the relationship between a song's tempo and its popularity.
+bar_plot <- ggplot(data = tempo_pop_data) +
   geom_col(mapping = aes(x = tempo, y = popularity, fill = genre))
 
 
