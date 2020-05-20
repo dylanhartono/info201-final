@@ -1,4 +1,5 @@
 data <- read.csv("../data/UltimateSpotifyTracks.csv", stringsAsFactors = FALSE)
+<<<<<<< HEAD
 library(dplyr)
 get_summary_info <- function(dataset) {
   list(
@@ -20,4 +21,7 @@ get_summary_info <- function(dataset) {
   )
 }
 get_summary_info(data)
+
+length(unique(data$?..genre))
+names(data)
 
