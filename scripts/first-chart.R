@@ -3,7 +3,8 @@ library(ggplot2)
 
 tempo_pop_data <- data %>%
   filter(!is.na(tempo)) %>%
-  filter(!is.na(popularity))
+  filter(!is.na(popularity)) %>%
+  filter(genre != "Children’s Music")
 
 
 #This chart aims to show the relationship between a song's tempo and its popularity.
