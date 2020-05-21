@@ -9,21 +9,12 @@ top_10_songs <- top_10_songs %>%
   
 
 # chart Most popular genres of the year(2010-2019)
-p <- top_10_songs %>%
-  ggplot(aes(x=year, y=pop)) + 
-  geom_point(aes(size=pop, colour=top.genre, text=paste("genre: ", top.genre)), alpha=0.5) +
-  geom_text(aes(size=pop, label=title), colour="gray20", alpha=1) +
-  labs(title = "Most popular genres of the year(2010-2019)",
-       x = "Year",
-       y = "Popularity Score") +
-  theme(axis.text = year)
+p <- ggplot(data=top_10_songs, aes(x=year, y=pop, fill=top.genre)) +
+  geom_bar(stat="identity") +
+  labs(title = "Most popular genres of the year(2010-2019)", 
+       x = "Year", 
+       y = "Popularity") 
 
 fig <- ggplotly(p)
 
 fig
-
-
-
-
-
-
