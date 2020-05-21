@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library("knitr")
 library("dplyr")
 library("lubridate")
@@ -30,9 +30,31 @@ kable(get_summary_table(data))
 
 
 ## Chart 1: 
-
-```{r, echo=FALSE}
+### This plot was intended to show the correlation between a song's tempo and its popularity.
+```{r, echo=FALSE, message=FALSE}
+source("scripts/first-chart.R")
+first_chart(data)
 ```
+Popularity index was taken from spotify's popularity index.The higher the value, the more popular the song was (100 meaning the highest possible level of popularity attainable on Spotify).
+
+
+**Observation**:
+
+From the line plot, we can see that as as the popularity level increases,
+the bpm decreases, converging at about 115 bpm. This observation changes
+when popularity level hits above 50, where there is an upward-sloping
+relationship in which the bpm increases with popularity level.
+
+Once we pass a popularity level of 72, we can see that the
+higher the popularity level,the lower the bpm.
+This can imply that slow songs with a lower bpm have been more popular.
+
+We also note that there is a large error margin (seen in the grey area), where
+songs of the same popularity can have either very high bpm or very low bpm. As
+such, it is important to note that there are many variables which can contribute
+a song's popularity. Although there is acorrelation between the tempo of a song and 
+its popularity, causation is not proven.
+
 ## Chart 2: 
 
 
