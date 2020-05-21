@@ -7,11 +7,22 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library("knitr")
+library("dplyr")
+library("lubridate")
+library("leaflet")
+library("ggplot2")
+source("scripts/summary.R")
+source("scripts/summary-table.R")
+data <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
 ```
 
 
 ## Introduction to the problem domain and dataset
-
+```{r echo = FALSE}
+get_summary_info(data)
+kable(get_summary_table(data))
+```
 
 
 ## Summary Table 
@@ -21,7 +32,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Chart 1: 
 
 ```{r, echo=FALSE}
-source("scripts/second-chart.R")
 ```
 ## Chart 2: 
 
