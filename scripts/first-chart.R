@@ -5,9 +5,7 @@ library(ggplot2)
 library(plotly)
 library(RColorBrewer)
 
-data <- read.csv("../data/top10s.csv", stringsAsFactors = FALSE)
 
-length(unique(data$title))
 
 #filter out repeated songs and NA values
 tempo_pop_data <- data %>%
@@ -41,25 +39,9 @@ tempo_pop_data <- data %>%
 #with low popularity (eg. 0) with really low bpm and high bpm.
 
 
-ggplotly(ggplot(data = tempo_pop_data) +
+first_chart <- function(data) {
+  ggplotly(ggplot(data = tempo_pop_data) +
   geom_smooth(mapping = aes(y = bpm, x = pop)) +
   labs(x = "popularity (100 - most popular)", y = "bpm (beats per minute)")
 )
-
-b <- plot_ly(
-  data = tempo_pop_data,
-  x  = ~bpm,
-  y = ~pop,
-  color = ~top.genre,
-  colors = colorRampPalette(brewer.pal(8, "Dark2"))(27),
-  type = "smooth",
-  text = ~paste("</br>", top.genre,
-                ":",
-                "</br> Tempo: ", bpm,
-                "</br> Popularity: ", pop)
-) %>%
-  layout(
-    title = "Tempo VS. Popularity",
-    xaxis = list(title = "bpm (beats per minute"),
-    yaxis = list(title = "popularity")
-  )
+}
