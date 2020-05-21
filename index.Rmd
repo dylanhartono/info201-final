@@ -7,7 +7,6 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
 ```
 
 
@@ -20,7 +19,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ## Chart 1: 
+
 ```{r, echo=FALSE}
+source("scripts/second-chart.R")
 ```
 ## Chart 2: 
 
