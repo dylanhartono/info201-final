@@ -7,15 +7,13 @@ library(RColorBrewer)
 
 
 
-#filter out repeated songs and NA values
-tempo_pop_data <- data %>%
-  filter(!is.na(bpm)) %>%
-  filter(!is.na(pop)) %>%
-  filter(!duplicated(title)) %>%
-  filter(bpm != 0)
-  
 
-first_chart <- function(data) {
+first_chart <- function(data_df) {
+  tempo_pop_data <- data_df %>%
+    filter(!is.na(bpm)) %>%
+    filter(!is.na(pop)) %>%
+    filter(!duplicated(title)) %>%
+    filter(bpm != 0)
   ggplotly(ggplot(data = tempo_pop_data) +
   geom_smooth(mapping = aes(y = bpm, x = pop)) +
   labs(x = "popularity (100 - most popular)", y = "bpm (beats per minute)")
