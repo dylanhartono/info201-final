@@ -39,3 +39,7 @@ fig
 
 
 
+<<<<<<< HEAD
+=======
+fig
+>>>>>>> bdcfdf17f3fb322f4d5d17bd9c37d28ed6d8fad5

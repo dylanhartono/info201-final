@@ -1,5 +1,3 @@
-data <- read.csv("../data/top10s.csv", stringsAsFactors = FALSE)
-library(dplyr)
 get_summary_info <- function(dataset) {
   list(
     songs <- nrow(dataset),
@@ -20,4 +18,3 @@ get_summary_info <- function(dataset) {
       pull(count)
   )
 }
-get_summary_info(data)
