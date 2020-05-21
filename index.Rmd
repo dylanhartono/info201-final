@@ -35,7 +35,7 @@ kable(get_summary_table(data))
 source("scripts/first-chart.R")
 first_chart(data)
 ```
-Popularity index was taken from spotify's popularity index.The higher the value, the more popular the song was (100 meaning the highest possible level of popularity attainable on Spotify).
+**Note:** Popularity index was taken from spotify's popularity index.The higher the value, the more popular the song was (100 meaning the highest possible level of popularity attainable on Spotify).
 
 
 **Observation**:
@@ -58,4 +58,24 @@ its popularity, causation is not proven.
 ## Chart 2: 
 
 
-## Chart 3
+
+
+
+
+## Chart 3: Pop Music Genre Changes from 2010 to 2019
+This bar chart was intended to show the most popular pop songs and music genres changes within a decade. Each of on the chart represent the most popular song(s) of that year with the highest popularity index. 
+```{r, echo=FALSE, message=FALSE}
+source("scripts/third-chart.R")
+third_chart(data)
+```
+**Note:** The popularity index was based on spotify's popularity index. Ranging from 0 to 100, which shows the least popular songs to the most popular songs.
+
+
+
+**Important Insights:**
+
+Throughtout years, people's favorite music genres have changed over time. From this horizontal bar chart, we could see that there are four main pop music genres 
+that are most popular from 2010 to 2019, which are *canadian contemporary R&B, dance pop, neo mellow, and pop music*. 
+
+From year 2011 to 2013, the most popular pop songs are **A Thousand Years**, **Titanium**, and **Underneath the Tree**, which all fall under the dance pop music genre. Notably, there are three pop songs that have the same popularity index in the year of **2015**.
+In addition, the song **Memories** has the highest popularity index among other songs on the chart with a number of 99.
