@@ -1,27 +1,23 @@
-data <- read.csv("../data/UltimateSpotifyTracks.csv", stringsAsFactors = FALSE)
-<<<<<<< HEAD
+data <- read.csv("../data/top10s.csv", stringsAsFactors = FALSE)
 library(dplyr)
 get_summary_info <- function(dataset) {
   list(
     songs <- nrow(dataset),
-    num_features <- ncol(dataset),
-    most_common_key <- dataset %>% 
-      group_by(key) %>% 
+    features <- names(dataset %>% 
+                       select(-title, -artist, -top.genre, -year, -X)),
+    avg_bpm <- mean(dataset$bpm),
+    avg_dnce <- mean(dataset$dnce),
+    avg_top_pop <- mean(dataset$pop),
+    top_genre <- dataset %>% 
+      group_by(top.genre) %>% 
       summarise(count = n()) %>% 
       filter(count == max(count)) %>% 
-      pull(key),
-    avg_tempo <- mean(dataset$tempo),
-    avg_dance <- mean(dataset$dance),
-    percent_major <- dataset %>% filter(mode == "Major") %>% nrow() / nrow(dataset),
+      pull(top.genre),
     top_artist <- dataset %>% 
-      group_by(artist_name) %>% 
+      group_by(artist) %>% 
       summarise(count = n()) %>% 
       filter(count == max(count)) %>% 
       pull(count)
   )
 }
 get_summary_info(data)
-
-length(unique(data$?..genre))
-names(data)
-
