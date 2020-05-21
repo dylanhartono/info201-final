@@ -15,6 +15,12 @@ tempo_pop_data <- data %>%
   filter(bpm != 0)
   
 
+first_chart <- function(data) {
+  ggplotly(ggplot(data = tempo_pop_data) +
+  geom_smooth(mapping = aes(y = bpm, x = pop)) +
+  labs(x = "popularity (100 - most popular)", y = "bpm (beats per minute)")
+)
+}
 
 
 #This chart aims to show the relationship between a song's 
@@ -38,10 +44,3 @@ tempo_pop_data <- data %>%
 #We also note that there is a large error margin, as there are values
 #with low popularity (eg. 0) with really low bpm and high bpm.
 
-
-first_chart <- function(data) {
-  ggplotly(ggplot(data = tempo_pop_data) +
-  geom_smooth(mapping = aes(y = bpm, x = pop)) +
-  labs(x = "popularity (100 - most popular)", y = "bpm (beats per minute)")
-)
-}
