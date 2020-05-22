@@ -56,24 +56,23 @@ Observations:
 source("scripts/first-chart.R")
 first_chart(data)
 ```
-**Note:** Popularity index was taken from spotify's popularity index.The higher the value, the more popular the song was (100 meaning the highest possible level of popularity attainable on Spotify).
+**Note:** Popularity index was taken from spotify's popularity index.The higher the value, the more popular the song was (100 meaning the highest possible level of popularity attainable on Spotify). The grey area indicates all the values (songs with respective bpm and popularity level), with the blue line being the best fit line.
 
 
 **Observation**:
 
-From the line plot, we can see that as as the popularity level increases,
-the bpm decreases, converging at about 115 bpm. This observation changes
-when popularity level hits above 50, where there is an upward-sloping
-relationship in which the bpm increases with popularity level.
+From the line plot, we can see that as as the popularity level of a song increases, the bpm (tempo) increases, peaking at about 121bpm. 
 
-Once we pass a popularity level of 72, we can see that the
-higher the popularity level,the lower the bpm.
-This can imply that slow songs with a lower bpm have been more popular.
+This relationship changes once we pass a popularity level of 72, where the downward-sloping part of the plot shows that the higher the popularity level, the lower the bpm.
+We can see that songs with high popularity level approaching the 100 level have decreasing tempo that approaches 103 bpm.
+This implies that songs that are more popular amongst
+the general music audience have lower bpm, possiblying showing
+that slow songs have been more popular.
 
 We also note that there is a large error margin (seen in the grey area), where
 songs of the same popularity can have either very high bpm or very low bpm. As
 such, it is important to note that there are many variables which can contribute
-a song's popularity. Although there is acorrelation between the tempo of a song and 
+a song's popularity. Although there is a correlation between the tempo of a song and 
 its popularity, causation is not proven.
 
 ## Chart 2: 
