@@ -2,8 +2,6 @@
 # Author: Carol Lei
 # Editors: Dainese, Dylan, Whitney
 
-rm(list = ls())
-
 library(ggplot2)
 library(plotly)
 
@@ -15,9 +13,8 @@ second_chart <- function(songs_df) {
     geom_point(mapping = aes(x = pop, y = dnce, color = top.genre)) + 
     scale_fill_brewer(palette = "YlOrRd") + 
     labs(title = "Danceability versus Popularity", x = "Popularity", y = "Danceability")
+    #scale_fill_discrete(name = "Genre")
   )
   return(popularity_dance)
 }
-
-plot
 
