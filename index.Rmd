@@ -32,7 +32,12 @@ Looking at the data overall, since we are looking at the most popular songs, her
 To get a better idea of popularity specific to genre on Spotify, we aggregated our data and found the number of songs with that genre and the mean of the popularity for each of the genres. BPM and Danceability are also included since they will be used later in visualizations. Count of the songs were included since this is a top songs compilation of data, so more songs in the top ranks of popularity were included more. Here is just a small set of our data since there are many genres.
 
 ```{r, echo=FALSE}
-kable(head(get_summary_table(data), 15))
+kable(head(get_summary_table(data), 15),
+      col.names = c("Top Genre",
+                    "Average Popularity",
+                    "Total No. Tracks",
+                    "Average Danceability",
+                    "Average BPM"))
 ```
 
 Observations:
@@ -72,6 +77,8 @@ a song's popularity. Although there is acorrelation between the tempo of a song 
 its popularity, causation is not proven.
 
 ## Chart 2: 
+We wanted to visualize if popularity had a correlational relationship with the danceability of a track. This scatter plot depicts track popularity compared to track danceability, both measured on a scale from 0 (not popular) to 100 (popular). Each dot on the plot represents a single track by an artist. The dots are colored to represent the various genres of Spotify's top tracks between 2010 and 2019. 
+
 ```{r echo = FALSE}
 source("scripts/second-chart.R")
 data <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
