@@ -31,6 +31,7 @@ Looking at the data overall, since we are looking at the most popular songs, her
 ## Summary about Spotify Genres
 To get a better idea of popularity specific to genre on Spotify, we aggregated our data and found the number of songs with that genre and the mean of the popularity for each of the genres. BPM and Danceability are also included since they will be used later in visualizations. Count of the songs were included since this is a top songs compilation of data, so more songs in the top ranks of popularity were included more. Here is just a small set of our data since there are many genres.
 
+
 ```{r, echo=FALSE}
 kable(head(get_summary_table(data), 15),
       col.names = c("Top Genre",
@@ -50,9 +51,10 @@ kable(head(get_summary_table(data), 15),
 
 - Most songs however seem to land around 60-80 across varying genres.
 
-## Chart 1: 
+## Chart 1: Popularity and beats per minute (BPM)
 
 This plot was intended to show the correlation between a song's tempo and its popularity.
+
 
 ```{r, echo=FALSE, message=FALSE}
 source("scripts/first-chart.R")
@@ -78,9 +80,10 @@ such, it is important to note that there are many variables which can contribute
 a song's popularity. Although there is a correlation between the tempo of a song and 
 its popularity, causation is not proven.
 
-## Chart 2: 
+## Chart 2: Are popular songs danceable? 
 
 We wanted to visualize if popularity had a correlational relationship with the danceability of a track. This scatter plot depicts track popularity compared to track danceability, both measured on a scale from 0 (not popular) to 100 (popular). Each dot on the plot represents a single track by an artist. The dots are colored to represent the various genres of Spotify's top tracks between 2010 and 2019. 
+
 
 ```{r echo = FALSE}
 source("scripts/second-chart.R")
@@ -94,9 +97,11 @@ This scatter plot displays a weak to no positive correlation between popularity 
 There are fewer songs with danceability ratings less than 25 than songs with popularity rating less than 25. The track data points seem to cluster around 50 to 75 danceability and popularity. Tracks with the highest danceability rating fall in the dance pop and pop genre. The most popularity song on the Spotify charts in 2010 to 2019 is a pop song. 
 
 
-## Chart 3: Pop Music Genre Changes from 2010 to 2019
+## Chart 3: Popular music genre changes from 2010 to 2019
 
 This bar chart was intended to show the most popular pop songs and music genres changes within a decade. Each of on the chart represent the most popular song(s) of that year with the highest popularity index.
+
+
 ```{r, echo=FALSE, message=FALSE}
 source("scripts/third-chart.R")
 third_chart(data)

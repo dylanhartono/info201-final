@@ -5,7 +5,7 @@
 library(ggplot2)
 library(plotly)
 # interactive graph
-# depicts artist name, track name
+# hover points depict artist name, track name
 # scatter plot depicting popularity versus danceability
 second_chart <- function(songs_df) {
   songs_df$popularity <- songs_df$pop

@@ -18,6 +18,6 @@ first_chart <- function(data_df) {
     filter(pop != 0)
   ggplotly(ggplot(data = tempo_pop_data) +
   geom_smooth(mapping = aes(y = bpm, x = pop)) +
-  labs(x = "popularity (100 - most popular)", y = "bpm (beats per minute)")
+  labs(title = "Popularity versus BPM", x = "popularity (100 - most popular)", y = "bpm (beats per minute)")
 )
 }
