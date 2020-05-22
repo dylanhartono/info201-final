@@ -85,8 +85,9 @@ data <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
 second_chart(data)
 ```
 
+**Insights**:
 
-
+This scatter plot displays a weak to no positive correlation between popularity and danceability of a track. Though there may not be a clear positive correlation, there is most definitely no negative correlation between the two variables. As danceability increases, popularity trends increases. 
 
 
 ## Chart 3: Pop Music Genre Changes from 2010 to 2019
