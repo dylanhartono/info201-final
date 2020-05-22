@@ -31,9 +31,12 @@ kable(get_summary_table(data))
 
 ## Chart 1: 
 
-```{r, echo=FALSE}
-```
-## Chart 2: 
 
+## Chart 2: 
+```{r echo = FALSE}
+source("scripts/second-chart.R")
+data <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
+second_chart(data)
+```
 
 ## Chart 3

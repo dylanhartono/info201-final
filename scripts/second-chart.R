@@ -11,9 +11,13 @@ library(plotly)
 # depicts artist name, track name
 # scatter plot depicting popularity versus danceability
 second_chart <- function(songs_df) {
-popularity_dance <- ggplotly(ggplot(data = songs_df) +
-  geom_point(mapping = aes(x = pop, y = dnce, color = top.genre)) + 
-  scale_fill_brewer(palette = "YlOrRd") + 
-  labs(title = "Danceability versus Popularity", x = "Popularity", y = "Danceability")
-)
+  popularity_dance <- ggplotly(ggplot(songs_df) +
+    geom_point(mapping = aes(x = pop, y = dnce, color = top.genre)) + 
+    scale_fill_brewer(palette = "YlOrRd") + 
+    labs(title = "Danceability versus Popularity", x = "Popularity", y = "Danceability")
+  )
+  return(popularity_dance)
 }
+
+plot
+
