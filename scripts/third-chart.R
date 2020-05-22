@@ -1,16 +1,20 @@
 # chart Most popular genres of the year(2010-2019)
 library("dplyr")
 library("plotly")
+top_songs <- data
 third_chart <- function(top_songs){
   top_songs <- top_songs %>%
     group_by(year) %>%
-    filter(pop == max(pop))
-  x <- ggplot(data=top_songs, aes(x=paste(year, title), y=pop, fill=top.genre)) +
-    geom_bar(stat="identity") +
-    coord_flip() +
-    labs(title = "Most popular pop songs from 2010 to 2019", 
-         x = "Year & Song Title", 
+    filter(pop == max(pop)) %>% 
+    summarise(popularity = mean(pop), genre = mode(top.genre))
+  fig <- ggplot(data = top_songs) +
+    geom_col(mapping = aes(x = as.factor(year), y = popularity, fill = genre)) +
+    labs(title = "Most popular genres and associated popularity from 2010 to 2019", 
+         x = "Year", 
          y = "Popularity")
-  fig <- ggplotly(x)
   return(fig)
+}
+mode <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
 }
