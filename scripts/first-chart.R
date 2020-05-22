@@ -8,10 +8,14 @@ library(RColorBrewer)
 
 first_chart <- function(data_df) {
   tempo_pop_data <- data_df %>%
+    #filters out NA values
     filter(!is.na(bpm)) %>%
     filter(!is.na(pop)) %>%
+    #filters out duplicates
     filter(!duplicated(title)) %>%
-    filter(bpm != 0)
+    #filters out where bpm = 0 and pop = 0 since there is no meaning
+    filter(bpm != 0) %>%
+    filter(pop != 0)
   ggplotly(ggplot(data = tempo_pop_data) +
   geom_smooth(mapping = aes(y = bpm, x = pop)) +
   labs(x = "popularity (100 - most popular)", y = "bpm (beats per minute)")
