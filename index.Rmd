@@ -1,12 +1,12 @@
 ---
-title: "index"
-author: "team!"
+title: "Getting to the Top of Spotify: Analyzing Popularity Trends in Music"
+author: "Carol Lei, Dylan Hartono, Whitney Zhang, Dainese Chandra"
 date: "5/18/2020"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library("knitr")
 library("dplyr")
 library("lubridate")
@@ -20,17 +20,56 @@ data <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
 
 ## Introduction to the problem domain and dataset
 ```{r echo = FALSE}
-get_summary_info(data)
-kable(get_summary_table(data))
+summary <- get_summary_info(data)
+```
+We love listening to all types of music. Therefore, when we are going to top hits playlists, we wondered why certain songs tended to dominant in the Spotify playlists, so we want to ask the question, "what factors allow songs to be popular?" 
+We took to a dataset that was pulled from the Spotify API. The dataset contains `r summary$number_of_songs` songs. For each song, there is information about `r summary$features`. We will use these features to determine a certain feature that impacts popularity directly.
+
+Looking at the data overall, since we are looking at the most popular songs, here is the popularity score to better understand what it means -- `r summary$avg_pop`. There are a lot of genres in this dataset; there are `r summary$genres` genres! The most popular genre, which is determined by the highest average popularity is `r summary$top_genre`. The top artist overall though is determined through the artist with the most songs in the top of Spotify. The top artist is `r summary$top_artist`.
+
+
+## Summary about Spotify Genres
+To get a better idea of popularity specific to genre on Spotify, we aggregated our data and found the number of songs with that genre and the mean of the popularity for each of the genres. BPM and Danceability are also included since they will be used later in visualizations. Count of the songs were included since this is a top songs compilation of data, so more songs in the top ranks of popularity were included more. Here is just a small set of our data since there are many genres.
+
+```{r, echo=FALSE}
+kable(head(get_summary_table(data), 15))
 ```
 
+Observations:
 
-## Summary Table 
+- Looking at the data, Dance pop has the most number of songs in the Spotify playlists, but it's popularity for each of the songs tend to just be average.
 
+- Most songs actually only have a couple songs in each genre, so the averages might not truly reflect the overall popularity of the genre itself. For instance, brostep has 2 songs with 86 popularity.
 
+- The lowest average popularity song seems to come from Canadian Latin with only one song. The song is 18 popularity points.
+
+- Most songs however seem to land around 60-80 across varying genres.
 
 ## Chart 1: 
+### This plot was intended to show the correlation between a song's tempo and its popularity.
+```{r, echo=FALSE, message=FALSE}
+source("scripts/first-chart.R")
+first_chart(data)
+```
+**Note:** Popularity index was taken from spotify's popularity index.The higher the value, the more popular the song was (100 meaning the highest possible level of popularity attainable on Spotify).
 
+
+**Observation**:
+
+From the line plot, we can see that as as the popularity level increases,
+the bpm decreases, converging at about 115 bpm. This observation changes
+when popularity level hits above 50, where there is an upward-sloping
+relationship in which the bpm increases with popularity level.
+
+Once we pass a popularity level of 72, we can see that the
+higher the popularity level,the lower the bpm.
+This can imply that slow songs with a lower bpm have been more popular.
+
+We also note that there is a large error margin (seen in the grey area), where
+songs of the same popularity can have either very high bpm or very low bpm. As
+such, it is important to note that there are many variables which can contribute
+a song's popularity. Although there is acorrelation between the tempo of a song and 
+its popularity, causation is not proven.
 
 ## Chart 2: 
 ```{r echo = FALSE}
@@ -39,4 +78,24 @@ data <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
 second_chart(data)
 ```
 
-## Chart 3
+
+
+
+
+## Chart 3: Pop Music Genre Changes from 2010 to 2019
+This bar chart was intended to show the most popular pop songs and music genres changes within a decade. Each of on the chart represent the most popular song(s) of that year with the highest popularity index. 
+```{r, echo=FALSE, message=FALSE}
+source("scripts/third-chart.R")
+third_chart(data)
+```
+**Note:** The popularity index was based on spotify's popularity index. Ranging from 0 to 100, which shows the least popular songs to the most popular songs.
+
+
+
+**Important Insights:**
+
+Throughtout years, people's favorite music genres have changed over time. From this horizontal bar chart, we could see that there are four main pop music genres 
+that are most popular from 2010 to 2019, which are *canadian contemporary R&B, dance pop, neo mellow, and pop music*. 
+
+From year 2011 to 2013, the most popular pop songs are **A Thousand Years**, **Titanium**, and **Underneath the Tree**, which all fall under the dance pop music genre. Notably, there are three pop songs that have the same popularity index in the year of **2015**.
+In addition, the song **Memories** has the highest popularity index among other songs on the chart with a number of 99.
