@@ -20,7 +20,8 @@ second_chart <- function(songs_df) {
                  colors = colorRampPalette(brewer.pal(8, "Set1"))(27),
                  text = ~paste(artist, "-", title))
   fig <- fig %>% layout(
-    title = "Danceability versus Popularity"
+    title = "Danceability versus Popularity",
+    legend =list(title=list(text='<b> Genre </b>'))
   )
   return(fig)
 }
