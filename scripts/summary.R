@@ -1,3 +1,8 @@
+# get the summary info of the dataset. This includes the number of songs,
+# features that are collected by the dataset to measure a song (not including
+# artist, genre, title, year, and X), average popularity, number of genres,
+# top genre, and top artist. These are all used in the index.Rmd file for
+# overall data analysis
 get_summary_info <- function(dataset) {
   summary <- list()
   summary$number_of_songs <- nrow(dataset)
