@@ -1,3 +1,7 @@
+# function that gets summary information of each genre. That means
+# the number of songs, average danceability, average tempo (bpm),
+# arranged from their average popularity.
+# Digits are rounded to 1 decimal place
 get_summary_table <- function(dataset) {
   summary_table <- dataset %>% 
     group_by(top.genre) %>% 
