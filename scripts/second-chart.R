@@ -1,4 +1,4 @@
-### Correlation between danceability and song popularity 
+### Correlation between danceability and song popularity
 # Author: Carol Lei
 # Editors: Dainese, Dylan, Whitney
 
@@ -8,12 +8,19 @@ library(plotly)
 # depicts artist name, track name
 # scatter plot depicting popularity versus danceability
 second_chart <- function(songs_df) {
-  popularity_dance <- ggplotly(ggplot(songs_df) +
-    geom_point(mapping = aes(x = dnce, y = pop, color = top.genre)) +
-    scale_fill_brewer(palette = "YlOrRd") +
-    labs(title = "Danceability versus Popularity", x = "Danceability", y = "Popularity") +
-    scale_colour_discrete("Genres")
+  songs_df$popularity <- songs_df$pop
+  songs_df$danceability <- songs_df$dnce
+  Sys.setlocale("LC_ALL", "C")
+  fig <- plot_ly(songs_df,
+                 x = ~danceability,
+                 y = ~popularity,
+                 type = "scatter",
+                 mode = "markers",
+                 color = ~top.genre,
+                 colors = colorRampPalette(brewer.pal(8, "Set1"))(27),
+                 text = ~paste(artist, "-", title))
+  fig <- fig %>% layout(
+    title = "Danceability versus Popularity"
   )
-  return(popularity_dance)
+  return(fig)
 }
-
