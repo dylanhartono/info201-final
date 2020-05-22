@@ -1,6 +1,6 @@
 ---
-title: "index"
-author: "team!"
+title: "Getting to the Top of Spotify: Analyzing Popularity Trends in Music"
+author: "Carol Lei, Dylan Hartono, Whitney Zhang, Dainese Chandra"
 date: "5/18/2020"
 output: html_document
 ---
@@ -20,14 +20,30 @@ data <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
 
 ## Introduction to the problem domain and dataset
 ```{r echo = FALSE}
-get_summary_info(data)
-kable(get_summary_table(data))
+summary <- get_summary_info(data)
+```
+We love listening to all types of music. Therefore, when we are going to top hits playlists, we wondered why certain songs tended to dominant in the Spotify playlists, so we want to ask the question, "what factors allow songs to be popular?" 
+We took to a dataset that was pulled from the Spotify API. The dataset contains `r summary$number_of_songs` songs. For each song, there is information about `r summary$features`. We will use these features to determine a certain feature that impacts popularity directly.
+
+Looking at the data overall, since we are looking at the most popular songs, here is the popularity score to better understand what it means -- `r summary$avg_pop`. There are a lot of genres in this dataset; there are `r summary$genres` genres! The most popular genre, which is determined by the highest average popularity is `r summary$top_genre`. The top artist overall though is determined through the artist with the most songs in the top of Spotify. The top artist is `r summary$top_artist`.
+
+
+## Summary about Spotify Genres
+To get a better idea of popularity specific to genre on Spotify, we aggregated our data and found the number of songs with that genre and the mean of the popularity for each of the genres. BPM and Danceability are also included since they will be used later in visualizations. Count of the songs were included since this is a top songs compilation of data, so more songs in the top ranks of popularity were included more. Here is just a small set of our data since there are many genres.
+
+```{r, echo=FALSE}
+kable(head(get_summary_table(data), 15))
 ```
 
+Observations:
 
-## Summary Table 
+- Looking at the data, Dance pop has the most number of songs in the Spotify playlists, but it's popularity for each of the songs tend to just be average.
 
+- Most songs actually only have a couple songs in each genre, so the averages might not truly reflect the overall popularity of the genre itself. For instance, brostep has 2 songs with 86 popularity.
 
+- The lowest average popularity song seems to come from Canadian Latin with only one song. The song is 18 popularity points.
+
+- Most songs however seem to land around 60-80 across varying genres.
 
 ## Chart 1: 
 ### This plot was intended to show the correlation between a song's tempo and its popularity.
