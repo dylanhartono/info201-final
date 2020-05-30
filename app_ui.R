@@ -14,7 +14,6 @@ first_page <-tabPanel(
         inputId = "genre_var",
         label = "Select a genre",
         choices = genre_list,
-        selected = ""
       )),
     mainPanel(
       plotOutput("firstchart")
