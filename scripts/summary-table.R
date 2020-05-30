@@ -13,3 +13,4 @@ get_summary_table <- function(dataset) {
       ) %>%
     arrange(desc(avg_popularity), desc(count))
 }
+
