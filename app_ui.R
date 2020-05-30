@@ -16,6 +16,7 @@ first_page <-tabPanel(
         choices = genre_list,
       )),
     mainPanel(
+      tags$b("Does a song's tempo relate to its popularity?"),
       plotOutput("firstchart")
     )
   )
