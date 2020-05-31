@@ -4,15 +4,15 @@ library(dplyr)
 
 source("scripts/first-chart.R")
 
-choice <<- input$genre_var
+
 tempo_data <- data %>%
-  filter(top.genre == choice)
+  filter(top.genre == input$genre_var)
 
 server <- function(input, output) {
   output$firstchart <- renderPlot({
-    title <- paste("Tempo VS Popularity for: ", choice)
-    first_chart(tempo_data)
+    title <- paste("Tempo VS Popularity for: ", input$genre_var)
+    
+    
     })
 }
-
 
