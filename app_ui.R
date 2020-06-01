@@ -5,8 +5,15 @@ library(dplyr)
 genre_list <- unique(musicdf %>% select(top.genre))
 year_list <- unique(musicdf %>% select(year))
 
+introduction <-tabPanel(
+  "Introduction",
+  mainPanel(
+    h2("Problem statement: lorem asdar")
+  )
+)
+
 first_page <-tabPanel(
-  "First chart",
+  "Popularity and BPM",
   sidebarLayout(
     sidebarPanel(
       h1("Tempo VS Popularity"),
@@ -24,7 +31,7 @@ first_page <-tabPanel(
 )
 
 second_page <-tabPanel(
-  "Danceability vs Popularity",
+  "Music Danceability",
   sidebarLayout(
     sidebarPanel(
       h1("Danceability vs Popularity"),
@@ -42,7 +49,7 @@ second_page <-tabPanel(
 )
 
 third_page <- tabPanel(
-  "Third Page",
+  "Genres by the Years",
   sidebarLayout(
     sidebarPanel(
       h1("Music Genre Popularity for a Year"),
@@ -60,7 +67,8 @@ third_page <- tabPanel(
 )
 
 ui <- navbarPage(
-  "Title of our project",
+  "Understanding Popularity Music",
+  introduction,
   first_page,
   second_page,
   third_page
