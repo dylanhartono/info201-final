@@ -5,8 +5,10 @@ library(dplyr)
 source("scripts/first-chart.R")
 musicdf <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
 
+
 tempo_data <- musicdf %>%
   filter(top.genre == choice)
+
 
 server <- function(input, output) {
   output$firstchart <- renderPlot({
@@ -14,3 +16,5 @@ server <- function(input, output) {
     first_chart(tempo_data)
     })
 }
+
+
