@@ -66,6 +66,18 @@ third_page <- tabPanel(
   )
 )
 
+team_members <-tabPanel(
+  "The Team",
+  mainPanel(
+    p("Our team blah blah"),
+    p("Some more stuff about each of us"),
+    p("Dainese Chan"), 
+    p("Dylan Hartono"),
+    p("Carol Lei"),
+    p("Whitney Zhang")
+  )
+)
+
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
@@ -73,7 +85,8 @@ ui <- fluidPage(
     introduction,
     first_page,
     second_page,
-    third_page
+    third_page,
+    team_members
   )
 )
 
