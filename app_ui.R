@@ -4,6 +4,7 @@ library(dplyr)
 
 genre_list <- unique(musicdf %>% select(top.genre))
 year_list <- unique(musicdf %>% select(year))
+
 first_page <-tabPanel(
   "First chart",
   sidebarLayout(
@@ -18,6 +19,24 @@ first_page <-tabPanel(
     mainPanel(
       h2("Does a song's tempo relate to its popularity?"),
       plotlyOutput("firstchart")
+    )
+  )
+)
+
+second_page <-tabPanel(
+  "Danceability vs Popularity",
+  sidebarLayout(
+    sidebarPanel(
+      h1("Danceability vs Popularity"),
+      selectInput(
+        "genre_secondvar",
+        label = "Select a genre",
+        choices = genre_list,
+      )
+    ),
+    mainPanel(
+      h2("Does a song's danceability relate to its popularity?"),
+      plotlyOutput("secondchart")
     )
   )
 )
@@ -43,6 +62,7 @@ third_page <- tabPanel(
 ui <- navbarPage(
   "Title of our project",
   first_page,
+  second_page,
   third_page
 )
 
