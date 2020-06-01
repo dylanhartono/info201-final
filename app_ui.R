@@ -66,11 +66,14 @@ third_page <- tabPanel(
   )
 )
 
-ui <- navbarPage(
-  "Understanding Popularity Music",
-  introduction,
-  first_page,
-  second_page,
-  third_page
+ui <- fluidPage(
+  includeCSS("style.css"),
+  navbarPage(
+    h6("Understanding Popularity Music"),
+    introduction,
+    first_page,
+    second_page,
+    third_page
+  )
 )
 
