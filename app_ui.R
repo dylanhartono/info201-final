@@ -55,13 +55,13 @@ third_page <- tabPanel(
       h1("Music Genre Popularity for a Year"),
       selectInput(
         "year",
-        label = "Year",
+        label = "Select a Year",
         choices = year_list,
       )
     ),
     mainPanel(
       h2("How are genre popularities for different years"),
-      plotlyOutput("thirdchart")
+      plotlyOutput("thirdchart", height = 400)
     )
   )
 )

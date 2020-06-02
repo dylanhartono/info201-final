@@ -47,14 +47,15 @@ server <- function(input, output) {
   output$thirdchart <- renderPlotly({
     year_data <- filter_year(musicdf, input$year)
     plot <- ggplot(data = year_data) + 
-      geom_col(mapping = aes(x = top.genre, y = pop)) + 
+      geom_col(mapping = aes(x = top.genre, y = pop, fill= top.genre)) + 
       labs(
         title = paste0("Most popular genres and associated popularity for ",
                        input$year
                        ),
         x = "Genre",
         y = "Popularity"
-      )
+      ) +
+      theme(legend.position="none")
     return(ggplotly(plot))
   })
 }
@@ -69,6 +70,9 @@ filter_year <- function(data, year_look) {
   year_data <- data %>% 
     filter(year == year_look) %>% 
     group_by(top.genre) %>% 
-    summarise(pop = mean(pop))
+    summarise(pop = mean(pop)) %>%
+    top_n(5)
   return(year_data)
 }
+
+
