@@ -14,7 +14,7 @@ server <- function(input, output) {
     plot <- ggplot(data = data) +
      geom_smooth(mapping = aes(y = bpm, x = pop)) +
      labs(title = "Popularity versus BPM", 
-          x = "popularity (100 - most popular)",
+          x = "popularity (100 : most popular)",
           y = "bpm (beats per minute)")
     return(ggplotly(plot))
   })
