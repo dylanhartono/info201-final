@@ -7,8 +7,17 @@ year_list <- unique(musicdf %>% select(year))
 
 introduction <-tabPanel(
   "Introduction",
+  titlePanel("Spotify Music Trends"),
   mainPanel(
-    h2("Problem statement: lorem asdar")
+    tags$img("img"),
+    p("Our purpose of the project is to figure out which songs
+      are on the top of the charts for Spotify. We wonder if
+      pop songs are always the dominant genre or there are other
+      interesting genres that are popular."),
+    p("We got our data from Kaggle by user Leonardo Henrique. He
+      gathered information from the Spotify API and gathered 
+      information on different variables that characterize a 
+      song.")
   )
 )
 
@@ -81,7 +90,7 @@ team_members <-tabPanel(
 ui <- fluidPage(
   includeCSS("style.css"),
   navbarPage(
-    h6("Understanding Popularity Music"),
+    h6("Understanding Music Popularity"),
     introduction,
     first_page,
     second_page,
