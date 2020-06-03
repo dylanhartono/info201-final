@@ -70,7 +70,23 @@ third_page <- tabPanel(
     ),
     mainPanel(
       h2("How are genre popularities for different years"),
-      plotlyOutput("thirdchart")
+      plotlyOutput("thirdchart"),
+      p("Note: The popularity index was based on spotify's popularity index. 
+        Ranging from 0 to 100, which shows the least popular 
+        songs to the most popular songs."),
+      p("This bar chart was intended to show the most popular pop songs 
+        and music genres changes within a decade. Each of on the chart 
+        represent the top 5 music genres of that year with 
+        the highest average popularity index."),
+      p("Notably, from 2010 to 2019, the Canadian Pop appeared most frequently 
+        on the top 5 popular music genre of the year.
+        In 2019, the Canadian Pop eanred the highest average 
+        popularity index in a decade,with a number of 95."),
+      p("In 2015, British Soul and Canadian Pop music gained the same average popularity 
+        index with a socre of 71."),
+      p("Overall, people's favorite music genres have changed over time, which we could 
+        see that there were new types of music appeared on the graph for each year. And 
+        people tend to listen to pop music based on the charts.")
     )
   )
 )
@@ -83,7 +99,9 @@ team_members <-tabPanel(
     p("Dainese Chan"), 
     p("Dylan Hartono"),
     p("Carol Lei"),
-    p("Whitney Zhang")
+    p("Whitney Zhang: a freshman who is interested in studying
+      data science and user experience design. For this project, 
+      mainly working on the Genres by the Years page.")
   )
 )
 

@@ -53,7 +53,7 @@ server <- function(input, output) {
                        input$year
                        ),
         x = "Genre",
-        y = "Popularity"
+        y = "Popularity Index"
       ) +
       theme(legend.position="none")
     return(ggplotly(plot))
