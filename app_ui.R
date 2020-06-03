@@ -9,7 +9,7 @@ introduction <-tabPanel(
   "Introduction",
   titlePanel("Spotify Music Trends"),
   mainPanel(
-    tags$img("img"),
+    tags$img(src = "/imgs/playlist.png", width = "100px", height = "100px"),
     p("Our purpose of the project is to figure out which songs
       are on the top of the charts for Spotify. We wonder if
       pop songs are always the dominant genre or there are other
