@@ -10,7 +10,7 @@ introduction <-tabPanel(
   "Introduction",
   titlePanel("Spotify Music Trends"),
   mainPanel(
-    tags$img(src = "imgs/playlist.png", width = "100px", height = "100px"),
+    tags$img(src = 'imgs/playlist.png', width = "100px", height = "100px"),
     p("Our purpose of the project is to figure out which songs
       are on the top of the charts for Spotify. We wondered if
       pop songs are always the dominant genre or there are other
@@ -103,22 +103,24 @@ third_page <- tabPanel(
     mainPanel(
       h2("How are genre popularities for different years"),
       plotlyOutput("thirdchart"),
-      p("Note: The popularity index was based on spotify's popularity index. 
+      tags$i(tags$b("Note: "), "The popularity index was based on spotify's popularity index. 
         Ranging from 0 to 100, which shows the least popular 
         songs to the most popular songs."),
+      tags$br(),
       p("This bar chart was intended to show the most popular pop songs 
         and music genres changes within a decade. Each of on the chart 
         represent the top 5 music genres of that year with 
         the highest average popularity index."),
-      p("Notably, from 2010 to 2019, the Canadian Pop appeared most frequently 
+      p("Notably, from 2010 to 2019, the", tags$b("Canadian Pop"), "appeared most frequently 
         on the top 5 popular music genre of the year.
         In 2019, the Canadian Pop eanred the highest average 
         popularity index in a decade,with a number of 95."),
-      p("In 2015, British Soul and Canadian Pop music gained the same average popularity 
-        index with a socre of 71."),
+      p("In 2015,", tags$b("British Soul"), "and", tags$b("Canadian Pop music"), 
+      "gained the same average popularity index with a socre of 71."),
       p("Overall, people's favorite music genres have changed over time, which we could 
         see that there were new types of music appeared on the graph for each year. And 
-        people tend to listen to pop music based on the charts.")
+        people tend to listen to", tags$b("Pop music"), "based on the charts.")
+     
     )
   )
 )
@@ -159,9 +161,9 @@ team_members <-tabPanel(
       in mobile app development. I mainly worked on the
       summaries and small bugs on pages for the project."),
     p("Carol Lei"),
-    p("Whitney Zhang: a freshman who is interested in studying
+    p("Whitney Zhang: I am a freshman who is interested in studying
       data science and user experience design. For this project, 
-      mainly working on the Genres by the Years page.")
+      I mainly worked on the Genres by the Years page.")
   )
 )
 
