@@ -1,8 +1,17 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+
 musicdf <- read.csv("data/top10s.csv", stringsAsFactors = FALSE,
                     header = TRUE, sep = ',')
+genres <- musicdf %>% 
+  group_by(top.genre) %>% 
+  summarise(count = n()) %>% 
+  filter(count > 5) %>% 
+  pull(top.genre)
+musicdf <- musicdf %>% 
+  filter(top.genre %in% genres)
+
 genre_list <- unique(musicdf %>% select(top.genre))
 year_list <- unique(musicdf %>% select(year))
 
@@ -85,9 +94,11 @@ second_page <-tabPanel(
     mainPanel(
       h2("Does a song's danceability relate to its popularity?"),
       plotlyOutput("secondchart")
+      
     )
   )
 )
+
 
 third_page <- tabPanel(
   "Genres by the Years",
@@ -153,17 +164,21 @@ conclusions_page <- tabPanel(
 team_members <-tabPanel(
   "The Team",
   mainPanel(
-    p("Our team blah blah"),
-    p("Some more stuff about each of us"),
-    p("Dainese Chandra: I'm a junior whose interested in linking 
+    p("This data visualization was created by four students attending 
+      the University of Washington, taking INFO 201: Technical Foundations.
+      "),
+    p("Meet the team members:"),
+    tags$p(id = "intro", "Dainese Chandra: I'm a junior whose interested in linking 
       economics with data :) I mainly worked with Tempo and Popularity!"),
-    p("Dylan Hartono: G'day! I'm a freshman interested 
+    tags$p(id = "intro", "Dylan Hartono: G'day! I'm a freshman interested 
       in mobile app development. I mainly worked on the
       summaries and small bugs on pages for the project."),
-    p("Carol Lei"),
-    p("Whitney Zhang: I am a freshman who is interested in studying
+    tags$p(id = "intro", "Carol Lei: I am a sophomore, passionate about empathetic and inclusive designs.
+      I primarily worked on the music danceability page. Cheers!"),
+    tags$p(id = "intro", "Whitney Zhang: I am a freshman who is interested in studying
       data science and user experience design. For this project, 
-      I mainly worked on the Genres by the Years page.")
+      I mainly worked on the Genres by the Years page."),
+    p("Thank you for engaging with our data visualizations!")
   )
 )
 
