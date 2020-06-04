@@ -1,5 +1,6 @@
 library(dplyr)
 library(shiny)
+library(RColorBrewer)
 
 genres <- musicdf %>% 
   group_by(top.genre) %>% 

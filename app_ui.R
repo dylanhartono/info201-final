@@ -44,8 +44,29 @@ first_page <-tabPanel(
       )
     ),
     mainPanel(
-      h2("Does a song's tempo relate to its popularity?"),
-      plotlyOutput("firstchart")
+      h2("Does a song's", div("tempo", style = "color: blue"), "relate 
+         to its ", div("popularity?", style = "color: PaleVioletRed")),
+      tags$br(),
+      plotlyOutput("firstchart"),
+      p(),
+      p("We can observe that the tempo of a song can
+        have different correlations to its popularity,
+        depending on the genre."),
+      p("Some genres, such as ", tags$b("pop "), "have a negative linear
+      relationship where songs that are more popular have 
+      slower tempo. On the other hand, some genres such as ",
+      tags$b("boy band"),"songs have little to no relationship as 
+      majority of the songs in that genre are of similar tempo."),
+      p("Another fun thing to note is that ", tags$b("hip pop"),
+      "songs (hip pop, not hip hop!) seem to have a
+      confusing relationship with popularity, evident by the graph
+      shown when the genre is picked."),
+      tags$i("Note: Hip pop is a genre that can be interpreted in many
+              different ways. Some people view hip pop as songs with
+              typically hip-hop beats, with a fusion of catchy tunes
+              and melodious vocals. Others view hip pop as songs
+              that are by hip hop artists they do not consider
+              authentic or good hip-hop .")
     )
   )
 )
@@ -132,7 +153,8 @@ team_members <-tabPanel(
   mainPanel(
     p("Our team blah blah"),
     p("Some more stuff about each of us"),
-    p("Dainese Chan"), 
+    p("Dainese Chandra: I'm a junior whose interested in linking 
+      economics with data. I mainly worked with Tempo and Popularity."),
     p("Dylan Hartono: G'day! I'm a freshman interested 
       in mobile app development. I mainly worked on the
       summaries and small bugs on pages for the project."),
