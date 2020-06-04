@@ -3,6 +3,14 @@ library(shiny)
 
 source("scripts/first-chart.R")
 musicdf <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
+genres <- musicdf %>% 
+  group_by(top.genre) %>% 
+  summarise(count = n()) %>% 
+  filter(count > 5) %>% 
+  pull(top.genre)
+musicdf <- musicdf %>% 
+  filter(top.genre %in% genres)
+
 
 library("ggplot2")
 server <- function(input, output) {
@@ -20,7 +28,6 @@ server <- function(input, output) {
   })
   #render second chart
   output$secondchart <- renderPlotly({
-    title <- paste("Danceability VS Popularity for: ", input$genre_secondvar)
     data <- tempo_data(input$genre_secondvar)
     Sys.setlocale("LC_ALL", "C")
     plot <- plot_ly(data = data,
@@ -31,8 +38,11 @@ server <- function(input, output) {
             colors = colorRampPalette(brewer.pal(8, "Set1"))(27),
             text = ~paste(artist, "-", title))
     plot <- plot %>% layout(
-      title = "Danceability versus Popularity",
-      legend = list(title=list(text = "<b> Genre </b>"))
+      title = paste0("Danceability versus Popularity for ",
+                     input$genre_secondvar, " Genre"),
+      legend = list(title=list(text = "<b> Genre </b>")),
+      xaxis = list(title = "Danceability"),
+      yaxis = list(title = "Popularity")
     )
     
     #plot <- ggplot(data = data) +

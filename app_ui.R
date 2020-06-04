@@ -9,15 +9,25 @@ introduction <-tabPanel(
   "Introduction",
   titlePanel("Spotify Music Trends"),
   mainPanel(
-    tags$img(src = "/imgs/playlist.png", width = "100px", height = "100px"),
+    tags$img(src = "imgs/playlist.png", width = "100px", height = "100px"),
     p("Our purpose of the project is to figure out which songs
-      are on the top of the charts for Spotify. We wonder if
+      are on the top of the charts for Spotify. We wondered if
       pop songs are always the dominant genre or there are other
-      interesting genres that are popular."),
+      interesting genres that are just as popular."),
     p("We got our data from Kaggle by user Leonardo Henrique. He
       gathered information from the Spotify API and gathered 
       information on different variables that characterize a 
-      song.")
+      song."),
+    p("This leads to our main question..."),
+    em("What makes a song popular?"),
+    p(),
+    p(strong("Quick Disclaimer!"), "We realised in the dataset that there 
+      were some genres with only one or two songs that are 
+      really popular, but we decided not to keep them.
+      Genres with not many songs in the spotify lists indicate
+      the song was good but not necessarily the overall genre, 
+      so we filtered out genres with less than 5 songs to more
+      accurately see which genres are on the top of the charts.")
   )
 )
 
@@ -91,13 +101,40 @@ third_page <- tabPanel(
   )
 )
 
+conclusions_page <- tabPanel(
+  "Conclusions",
+  mainPanel(
+    h3("Here are some final remarks about the project..."),
+    tags$li("Most songs actually in many genres ended up being near
+       the same bpm, but what was interesting was that data
+       showed the more popular songs had more variation to
+       their data."),
+    tags$li("We found that the measurement on danceability in 
+       relation to popularity was not too strong, so really
+       we realised that popularity comes from more than just
+       one factor"),
+    tags$li("Songs that were under a pop genre were considered
+       popular. This came to no surprise, but for many of the
+       top genres for every year, pop genres from different
+       countries and styles came out on top."),
+    p("Overall, we concluded from our evidence that there is
+      no perfect formula towards getting a song on the Spotify
+      charts with only danceability or bpm, but we realise
+      from seeing top genres what makes a song popular is in the
+      name itself -- it has to be a pop song from the pop genre.
+       :)")
+  )
+)
+
 team_members <-tabPanel(
   "The Team",
   mainPanel(
     p("Our team blah blah"),
     p("Some more stuff about each of us"),
     p("Dainese Chan"), 
-    p("Dylan Hartono"),
+    p("Dylan Hartono: G'day! I'm a freshman interested 
+      in mobile app development. I mainly worked on the
+      summaries and small bugs on pages for the project."),
     p("Carol Lei"),
     p("Whitney Zhang: a freshman who is interested in studying
       data science and user experience design. For this project, 
@@ -113,6 +150,7 @@ ui <- fluidPage(
     first_page,
     second_page,
     third_page,
+    conclusions_page, 
     team_members
   )
 )
