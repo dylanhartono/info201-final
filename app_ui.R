@@ -141,12 +141,12 @@ third_page <- tabPanel(
         "appeared most frequently on the top 5 popular music genre
         of the year. In 2019, the Canadian Pop eanred the highest average
         popularity index in a decade,with a number of 95."),
-      p("In 2015,", tags$b("British Soul"), "and", tags$b("Canadian Pop music"),
-        "gained the same average popularity index with a socre of 71."),
-      p("Overall, people's favorite music genres have changed over time, which
-        we could see that there were new types of music appeared on the graph
-        for each year. And people tend to listen to", tags$b("Pop music"),
-        "based on the charts."),
+      p("In 2010,", tags$b("Barbadian Pop"), "and", tags$b("Hip Pop music"), 
+      "gained the same average popularity index with a socre of 65."),
+      p("Overall, people's favorite music genres have changed over time,
+        which we could see that there were new types of music appeared on
+        the graph for each year. And people tend to listen to",
+        tags$b("Pop music"), "based on the charts."),
       tags$br(),
       tags$br()
     )
