@@ -3,45 +3,45 @@ library(ggplot2)
 library(dplyr)
 
 musicdf <- read.csv("data/top10s.csv", stringsAsFactors = FALSE,
-                    header = TRUE, sep = ',')
-genres <- musicdf %>% 
-  group_by(top.genre) %>% 
-  summarise(count = n()) %>% 
-  filter(count > 5) %>% 
+                    header = TRUE, sep = ",")
+genres <- musicdf %>%
+  group_by(top.genre) %>%
+  summarise(count = n()) %>%
+  filter(count > 5) %>%
   pull(top.genre)
-musicdf <- musicdf %>% 
+musicdf <- musicdf %>%
   filter(top.genre %in% genres)
 
 genre_list <- unique(musicdf %>% select(top.genre))
 year_list <- unique(musicdf %>% select(year))
 
-introduction <-tabPanel(
+introduction <- tabPanel(
   "Introduction",
   titlePanel("Spotify Music Trends"),
   mainPanel(
-    tags$img(src = 'imgs/playlist.png', width = "100px", height = "100px"),
+    tags$img(src = "imgs/playlist.png", width = "100px", height = "100px"),
     p("Our purpose of the project is to figure out which songs
       are on the top of the charts for Spotify. We wondered if
       pop songs are always the dominant genre or there are other
       interesting genres that are just as popular."),
     p("We got our data from Kaggle by user Leonardo Henrique. He
-      gathered information from the Spotify API and gathered 
-      information on different variables that characterize a 
+      gathered information from the Spotify API and gathered
+      information on different variables that characterize a
       song."),
     p("This leads to our main question..."),
     em("What makes a song popular?"),
     p(),
-    p(strong("Quick Disclaimer!"), "We realised in the dataset that there 
-      were some genres with only one or two songs that are 
+    p(strong("Quick Disclaimer!"), "We realised in the dataset that there
+      were some genres with only one or two songs that are
       really popular, but we decided not to keep them.
       Genres with not many songs in the spotify lists indicate
-      the song was good but not necessarily the overall genre, 
+      the song was good but not necessarily the overall genre,
       so we filtered out genres with less than 5 songs to more
       accurately see which genres are on the top of the charts.")
   )
 )
 
-first_page <-tabPanel(
+first_page <- tabPanel(
   "Popularity and BPM",
   sidebarLayout(
     sidebarPanel(
@@ -53,7 +53,7 @@ first_page <-tabPanel(
       )
     ),
     mainPanel(
-      h2("Does a song's", div("tempo", style = "color: blue"), "relate 
+      h2("Does a song's", div("tempo", style = "color: blue"), "relate
          to its ", div("popularity?", style = "color: PaleVioletRed")),
       tags$br(),
       plotlyOutput("firstchart"),
@@ -62,9 +62,9 @@ first_page <-tabPanel(
         have different correlations to its popularity,
         depending on the genre."),
       p("Some genres, such as ", tags$b("pop "), "have a negative linear
-      relationship where songs that are more popular have 
+      relationship where songs that are more popular have
       slower tempo. On the other hand, some genres such as ",
-      tags$b("boy band"),"songs have little to no relationship as 
+      tags$b("boy band"), "songs have little to no relationship as
       majority of the songs in that genre are of similar tempo."),
       p("Another fun thing to note is that ", tags$b("hip pop"),
       "songs (hip pop, not hip hop!) seem to have a
@@ -75,12 +75,14 @@ first_page <-tabPanel(
               typically hip-hop beats, with a fusion of catchy tunes
               and melodious vocals. Others view hip pop as songs
               that are by hip hop artists they do not consider
-              authentic or good hip-hop .")
+              authentic or good hip-hop ."),
+      tags$br(),
+      tags$br()
     )
   )
 )
 
-second_page <-tabPanel(
+second_page <- tabPanel(
   "Music Danceability",
   sidebarLayout(
     sidebarPanel(
@@ -93,12 +95,25 @@ second_page <-tabPanel(
     ),
     mainPanel(
       h2("Does a song's danceability relate to its popularity?"),
-      plotlyOutput("secondchart")
-      
+      plotlyOutput("secondchart"),
+      p("This scatter plot shows the relationship between danceability
+        and popularity of songs in 2010 to 2019. Songs are sorted into
+        their respective genres, this way each genre's popuarity and
+        danceability can be analyzed and understood individually."),
+      p("Some genres' danceability and popularity show a positive, others
+        show a negative correlation visually (not necesccarily statistically).
+        For example, art pop, australian dance and canadian contempoary R&B
+        show a visually positive correlation between danceability and
+        popularity. On the other hand, electropop shows a negative
+        correlation."),
+      p("Browsing through the different genres, it is clear that the dance pop
+        genre shows the most number of top tracks. The tracks bunch around 60
+        to 80 for both danceability and popularity."),
+      tags$br(),
+      tags$br()
     )
   )
 )
-
 
 third_page <- tabPanel(
   "Genres by the Years",
@@ -114,24 +129,26 @@ third_page <- tabPanel(
     mainPanel(
       h2("How are genre popularities for different years"),
       plotlyOutput("thirdchart"),
-      tags$i(tags$b("Note: "), "The popularity index was based on spotify's popularity index. 
-        Ranging from 0 to 100, which shows the least popular 
+      tags$i(tags$b("Note: "), "The popularity index was based on spotify's
+        popularity index.Ranging from 0 to 100, which shows the least popular
         songs to the most popular songs."),
       tags$br(),
-      p("This bar chart was intended to show the most popular pop songs 
-        and music genres changes within a decade. Each of on the chart 
-        represent the top 5 music genres of that year with 
+      p("This bar chart was intended to show the most popular pop songs
+        and music genres changes within a decade. Each of on the chart
+        represent the top 5 music genres of that year with
         the highest average popularity index."),
-      p("Notably, from 2010 to 2019, the", tags$b("Canadian Pop"), "appeared most frequently 
-        on the top 5 popular music genre of the year.
-        In 2019, the Canadian Pop eanred the highest average 
+      p("Notably, from 2010 to 2019, the", tags$b("Canadian Pop"),
+        "appeared most frequently on the top 5 popular music genre
+        of the year. In 2019, the Canadian Pop eanred the highest average
         popularity index in a decade,with a number of 95."),
-      p("In 2015,", tags$b("British Soul"), "and", tags$b("Canadian Pop music"), 
-      "gained the same average popularity index with a socre of 71."),
-      p("Overall, people's favorite music genres have changed over time, which we could 
-        see that there were new types of music appeared on the graph for each year. And 
-        people tend to listen to", tags$b("Pop music"), "based on the charts.")
-     
+      p("In 2015,", tags$b("British Soul"), "and", tags$b("Canadian Pop music"),
+        "gained the same average popularity index with a socre of 71."),
+      p("Overall, people's favorite music genres have changed over time, which
+        we could see that there were new types of music appeared on the graph
+        for each year. And people tend to listen to", tags$b("Pop music"),
+        "based on the charts."),
+      tags$br(),
+      tags$br()
     )
   )
 )
@@ -144,7 +161,7 @@ conclusions_page <- tabPanel(
        the same bpm, but what was interesting was that data
        showed the more popular songs had more variation to
        their data."),
-    tags$li("We found that the measurement on danceability in 
+    tags$li("We found that the measurement on danceability in
        relation to popularity was not too strong, so really
        we realised that popularity comes from more than just
        one factor"),
@@ -161,23 +178,25 @@ conclusions_page <- tabPanel(
   )
 )
 
-team_members <-tabPanel(
+team_members <- tabPanel(
   "The Team",
   mainPanel(
-    p("This data visualization was created by four students attending 
+    p("This data visualization was created by four students attending
       the University of Washington, taking INFO 201: Technical Foundations.
       "),
     p("Meet the team members:"),
-    tags$p(id = "intro", "Dainese Chandra: I'm a junior whose interested in linking 
-      economics with data :) I mainly worked with Tempo and Popularity!"),
-    tags$p(id = "intro", "Dylan Hartono: G'day! I'm a freshman interested 
+    tags$p(id = "intro", "Dainese Chandra: I'm a junior whose interested
+      in linking economics with data :) I mainly worked with Tempo and
+      Popularity!"),
+    tags$p(id = "intro", "Dylan Hartono: G'day! I'm a freshman interested
       in mobile app development. I mainly worked on the
       summaries and small bugs on pages for the project."),
-    tags$p(id = "intro", "Carol Lei: I am a sophomore, passionate about empathetic and inclusive designs.
-      I primarily worked on the music danceability page. Cheers!"),
-    tags$p(id = "intro", "Whitney Zhang: I am a freshman who is interested in studying
-      data science and user experience design. For this project, 
-      I mainly worked on the Genres by the Years page."),
+    tags$p(id = "intro", "Carol Lei: I am a sophomore, passionate about
+      empathetic and inclusive designs.I primarily worked on the music
+      danceability page. Cheers!"),
+    tags$p(id = "intro", "Whitney Zhang: I am a freshman who is
+      interested in studying data science and user experience design.
+      For this project, I mainly worked on the Genres by the Years page."),
     p("Thank you for engaging with our data visualizations!")
   )
 )
@@ -190,9 +209,7 @@ ui <- fluidPage(
     first_page,
     second_page,
     third_page,
-    conclusions_page, 
+    conclusions_page,
     team_members
   )
 )
-
-
