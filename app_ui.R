@@ -154,7 +154,7 @@ team_members <-tabPanel(
     p("Our team blah blah"),
     p("Some more stuff about each of us"),
     p("Dainese Chandra: I'm a junior whose interested in linking 
-      economics with data. I mainly worked with Tempo and Popularity."),
+      economics with data :) I mainly worked with Tempo and Popularity!"),
     p("Dylan Hartono: G'day! I'm a freshman interested 
       in mobile app development. I mainly worked on the
       summaries and small bugs on pages for the project."),
