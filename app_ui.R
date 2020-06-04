@@ -96,20 +96,21 @@ second_page <- tabPanel(
     mainPanel(
       h2("Does a song's danceability relate to its popularity?"),
       plotlyOutput("secondchart"),
-      tags$br(),
       p("This scatter plot shows the relationship between danceability
         and popularity of songs in 2010 to 2019. Songs are sorted into
         their respective genres, this way each genre's popuarity and
         danceability can be analyzed and understood individually."),
       p("Some genres' danceability and popularity show a positive, others
         show a negative correlation visually (not necesccarily statistically).
-        For example, art pop, australian dance and canadian contempoary R&B
-        show a visually positive correlation between danceability and
-        popularity. On the other hand, electropop shows a negative
+        For example,", tags$b("art pop"), ",", tags$b("australian dance"),
+        "and", tags$b("canadian contempoary R&B"),
+        "show a visually positive correlation between danceability and
+        popularity. On the other hand,", tags$b("electropop"), "shows a negative
         correlation."),
-      p("Browsing through the different genres, it is clear that the dance pop
-        genre shows the most number of top tracks. The tracks bunch around 60
-        to 80 for both danceability and popularity."),
+      p("Browsing through the different genres, it is clear that the",
+        tags$b("dance pop"), "genre shows the most number of top tracks.
+        The tracks bunch around 60 to 80 for both danceability
+        and popularity."),
       tags$br(),
       tags$br()
     )
@@ -143,7 +144,7 @@ third_page <- tabPanel(
         "appeared most frequently on the top 5 popular music genre
         of the year. In 2019, the Canadian Pop eanred the highest average
         popularity index in a decade,with a number of 95."),
-      p("In 2010,", tags$b("Barbadian Pop"), "and", tags$b("Hip Pop music"), 
+      p("In 2010,", tags$b("Barbadian Pop"), "and", tags$b("Hip Pop music"),
       "gained the same average popularity index with a socre of 65."),
       p("Overall, people's favorite music genres have changed over time,
         which we could see that there were new types of music appeared on

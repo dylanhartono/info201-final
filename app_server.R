@@ -5,7 +5,8 @@ library(RColorBrewer)
 genres <- musicdf %>%
   group_by(top.genre) %>%
   summarise(count = n()) %>%
-  filter(count > 5) %>%
+
+    filter(count > 5) %>%
   pull(top.genre)
 musicdf <- musicdf %>%
   filter(top.genre %in% genres)
