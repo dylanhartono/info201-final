@@ -1,8 +1,6 @@
 library(dplyr)
 library(shiny)
 
-source("scripts/first-chart.R")
-musicdf <- read.csv("data/top10s.csv", stringsAsFactors = FALSE)
 genres <- musicdf %>% 
   group_by(top.genre) %>% 
   summarise(count = n()) %>% 
@@ -45,11 +43,6 @@ server <- function(input, output) {
       yaxis = list(title = "Popularity")
     )
     
-    #plot <- ggplot(data = data) +
-      #geom_smooth(mapping = aes(y = bpm, x = pop)) +
-      #labs(title = "Danceability versus Popularity", 
-           #x = "popularity (100 - most popular)",
-           #y = "danceability (100 - most danceable)")
     return(plot)
   })
   

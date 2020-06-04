@@ -1,7 +1,8 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
-
+musicdf <- read.csv("data/top10s.csv", stringsAsFactors = FALSE,
+                    header = TRUE, sep = ',')
 genre_list <- unique(musicdf %>% select(top.genre))
 year_list <- unique(musicdf %>% select(year))
 
