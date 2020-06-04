@@ -96,6 +96,7 @@ second_page <- tabPanel(
     mainPanel(
       h2("Does a song's danceability relate to its popularity?"),
       plotlyOutput("secondchart"),
+      tags$br(),
       p("This scatter plot shows the relationship between danceability
         and popularity of songs in 2010 to 2019. Songs are sorted into
         their respective genres, this way each genre's popuarity and
@@ -129,6 +130,7 @@ third_page <- tabPanel(
     mainPanel(
       h2("How are genre popularities for different years"),
       plotlyOutput("thirdchart"),
+      tags$br(),
       tags$i(tags$b("Note: "), "The popularity index was based on spotify's
         popularity index.Ranging from 0 to 100, which shows the least popular
         songs to the most popular songs."),
