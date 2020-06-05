@@ -19,7 +19,7 @@ introduction <- tabPanel(
   "Introduction",
   titlePanel("Spotify Music Trends"),
   mainPanel(
-    tags$img(src = "imgs/playlist.png", width = "100px", height = "100px"),
+    tags$img("playlist.png"),
     p("Our purpose of the project is to figure out which songs
       are on the top of the charts for Spotify. We wondered if
       pop songs are always the dominant genre or there are other
@@ -30,7 +30,7 @@ introduction <- tabPanel(
       song."),
     p("This leads to our main question..."),
     em("What makes a song popular?"),
-    p(),
+    br(),
     p(strong("Quick Disclaimer!"), "We realised in the dataset that there
       were some genres with only one or two songs that are
       really popular, but we decided not to keep them.
