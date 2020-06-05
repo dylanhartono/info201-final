@@ -1,5 +1,5 @@
 h6 {
-  color: darkblue;
+  color: black ;
   font-size: 25px;
   font-family: 'Roboto', sans-serif;
 }
@@ -18,7 +18,7 @@ li {
 strong {
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
-  background: yellow;
+  background: lightgreen;
 }
 
 em {
@@ -28,5 +28,9 @@ em {
 }
 
 #intro {
-  padding-left: 25px;
+  padding-left: 15px;
+}
+
+.topnav {
+  background-color: white;
 }

@@ -19,27 +19,31 @@ introduction <- tabPanel(
   "Introduction",
   mainPanel(
     titlePanel("Spotify Music Trends"),
-    tags$img(src = "playlist.png",
-             width = 550,
-             height = 420),
-    p("Our purpose of the project is to figure out which songs
-      are on the top of the charts for Spotify. We wondered if
-      pop songs are always the dominant genre or there are other
-      interesting genres that are just as popular."),
-    p("We got our data from Kaggle by user Leonardo Henrique. He
-      gathered information from the Spotify API and gathered
-      information on different variables that characterize a
-      song."),
-    p("This leads to our main question..."),
-    em("What makes a song popular?"),
-    br(),
-    p(strong("Quick Disclaimer!"), "We realised in the dataset that there
-      were some genres with only one or two songs that are
-      really popular, but we decided not to keep them.
-      Genres with not many songs in the spotify lists indicate
-      the song was good but not necessarily the overall genre,
-      so we filtered out genres with less than 5 songs to more
-      accurately see which genres are on the top of the charts.")
+    column(6,
+      p("Our purpose of the project is to figure out which songs
+        are on the top of the charts for Spotify. We wondered if
+        pop songs are always the dominant genre or there are other
+        interesting genres that are just as popular."),
+      p("We got our data from Kaggle by user Leonardo Henrique. He
+        gathered information from the Spotify API and gathered
+        information on different variables that characterize a
+        song."),
+      p("This leads to our main question..."),
+      em("What makes a song popular?"),
+      br(),
+      p(strong("Quick Disclaimer!"), "We realised in the dataset that there
+        were some genres with only one or two songs that are
+        really popular, but we decided not to keep them.
+        Genres with not many songs in the spotify lists indicate
+        the song was good but not necessarily the overall genre,
+        so we filtered out genres with less than 5 songs to more
+        accurately see which genres are on the top of the charts.")
+    ),
+    column(4,
+           tags$img(src = "playlist.png",
+                    width = 550,
+                    height = 420),
+    )
   )
 )
 
@@ -98,6 +102,7 @@ second_page <- tabPanel(
     mainPanel(
       h2("Does a song's danceability relate to its popularity?"),
       plotlyOutput("secondchart"),
+      tags$br(),
       p("This scatter plot shows the relationship between danceability
         and popularity of songs in 2010 to 2019. Songs are sorted into
         their respective genres, this way each genre's popuarity and

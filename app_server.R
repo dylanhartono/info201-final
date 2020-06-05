@@ -12,6 +12,8 @@ musicdf <- musicdf %>%
   filter(top.genre %in% genres)
 
 library("ggplot2")
+
+# create server function
 server <- function(input, output) {
   #render first chart
   output$firstchart <- renderPlotly({
@@ -33,7 +35,8 @@ server <- function(input, output) {
             y = ~pop,
             type = "scatter",
             mode = "markers",
-            colors = colorRampPalette(brewer.pal(8, "Set1"))(27),
+            size = 8,
+            color = "coral",
             text = ~paste(artist, "-", title))
     plot <- plot %>% layout(
       title = paste0("Danceability versus Popularity for ",
