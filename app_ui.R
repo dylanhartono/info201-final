@@ -17,9 +17,11 @@ year_list <- unique(musicdf %>% select(year))
 
 introduction <- tabPanel(
   "Introduction",
-  titlePanel("Spotify Music Trends"),
   mainPanel(
-    tags$img("playlist.png"),
+    titlePanel("Spotify Music Trends"),
+    tags$img(src = "playlist.png",
+             width = 550,
+             height = 420),
     p("Our purpose of the project is to figure out which songs
       are on the top of the charts for Spotify. We wondered if
       pop songs are always the dominant genre or there are other

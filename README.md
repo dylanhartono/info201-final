@@ -1,3 +1,5 @@
+Shiny URL: https://dylanhartono.shinyapps.io/final-project-INFO201/
+
 # Final Project
 ## Domain of interest: Music Charts
 - Why are you interested in this field/domain?
